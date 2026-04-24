@@ -47,7 +47,11 @@ export default function Home() {
     if (!data.length) { setError("Please enter at least one node edge."); return; }
     setLoading(true);
     try {
-      const res = await fetch("/api/bfhl", {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL 
+        ? `${process.env.NEXT_PUBLIC_API_URL}/api/bfhl` 
+        : "/api/bfhl";
+
+      const res = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ data }),
