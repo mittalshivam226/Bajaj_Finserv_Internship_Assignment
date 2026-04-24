@@ -47,9 +47,11 @@ export default function Home() {
     if (!data.length) { setError("Please enter at least one node edge."); return; }
     setLoading(true);
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL 
-        ? `${process.env.NEXT_PUBLIC_API_URL}/api/bfhl` 
-        : "/api/bfhl";
+      let apiUrl = "/api/bfhl";
+      if (process.env.NEXT_PUBLIC_API_URL) {
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL.replace(/\/+$/, "");
+        apiUrl = `${baseUrl}/api/bfhl`;
+      }
 
       const res = await fetch(apiUrl, {
         method: "POST",
