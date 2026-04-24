@@ -1,9 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    // If this deployment is marked as backend-only, disable the frontend UI
+    if (process.env.BACKEND_ONLY === "true") {
+      return [
+        {
+          source: "/",
+          destination: "/api/bfhl",
+          permanent: false,
+        },
+      ];
+    }
+    return [];
+  },
   async rewrites() {
     return [
       {
-        // Evaluator calls <base-url>/bfhl → internally route to /api/bfhl
         source: "/bfhl",
         destination: "/api/bfhl",
       },
@@ -20,7 +32,6 @@ const nextConfig = {
         ],
       },
       {
-        // CORS headers on /bfhl too (before rewrite kicks in)
         source: "/bfhl",
         headers: [
           { key: "Access-Control-Allow-Origin", value: "*" },
