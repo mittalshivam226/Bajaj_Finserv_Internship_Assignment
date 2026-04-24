@@ -1,10 +1,8 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "SRM BFHL — Node Hierarchy Explorer",
-  description:
-    "Submit hierarchical node relationships and instantly visualise tree structures, cycle detection, and graph insights. Built for SRM Full Stack Engineering Challenge.",
-  keywords: "graph, hierarchy, tree, cycle detection, node explorer",
+  title: "Node Hierarchy Explorer — SRM Challenge",
+  description: "Analyse hierarchical node relationships with real-time cycle detection and tree visualization.",
 };
 
 export default function RootLayout({ children }) {
@@ -13,10 +11,9 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
-          rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
       </head>
       <body>{children}</body>
     </html>
